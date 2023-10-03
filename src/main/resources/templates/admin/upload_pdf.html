@@ -15,8 +15,8 @@
 
     <div class="form-group">
         <label for="subject">Select a Subject:</label>
-        <select id="subject" name="subjectId">
-            <option th:each="subject : ${subjects}" th:value="${subject.getId()}" th:text="${subject.name}"></option>
+        <select id="subject" name="subjectName">
+            <option th:each="subject : ${subjects}" th:value="${subject.getName()}" th:text="${subject.name}"></option>
         </select>
     </div>
 

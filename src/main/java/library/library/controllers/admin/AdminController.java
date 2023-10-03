@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
@@ -34,37 +38,40 @@ public class AdminController {
     @GetMapping("/upload")
     public String uploadPdf(Model model){
         model.addAttribute("groups", groupService.getAll());
-        model.addAttribute("subjects", subjectService.getAll());
-
+        model.addAttribute("subjects", subjectService.getAllWhereGroupId(1L));
 
         return "admin/upload_pdf";
     }
 
     @PostMapping("/uploadPost")
     public String handleFormSubmission(@RequestParam("groupId") String groupId,
-                                       @RequestParam("subjectId") String subjectId,
+                                       @RequestParam("subjectName") String subjectName,
                                        @RequestParam("name") String name,
                                        @RequestParam("author") String author,
                                        @RequestParam("file") MultipartFile file) throws Exception {
         if(file != null) {
             Group group = groupService.getById(Long.valueOf(groupId));
-            Subject subject = subjectService.getById(Long.valueOf(subjectId));
+            Subject subject = subjectService.getByNameAndGroupId(subjectName, group.getId());
 
             String fileName =
-                    fileNameCreator.createNameForFile(file, Long.valueOf(groupId), Long.valueOf(subjectId), name, author);
+                    fileNameCreator.createNameForFile(file, Long.valueOf(groupId), subject.getId() + 1, name, author);
             String filePath =
                     saveFile.saveFileAndGetFilePath(file, fileName);
 
             Book book = new Book();
 
-            book.setSubject(subject);
+            System.out.println(subject.getName());
+            System.out.println(subject.getGroup());
 
-            group.set
+            book.setSubject(subject);
+            subject.setGroup(group);
 
             book.setName(name);
             book.setAuthor(author);
             book.setPdfPath(filePath);
 
+            bookService.save(book);
+            groupService.save(group);
             bookService.save(book);
         }
 

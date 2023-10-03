@@ -28,4 +28,12 @@ public class SubjectService {
     public List<Subject> getAll(){
         return subjectRepo.findAll();
     }
+
+    public List<Subject> getAllWhereGroupId(Long id){
+        return subjectRepo.findAllByGroup_IdIs(id);
+    }
+
+    public Subject getByNameAndGroupId(String name, Long groupId){
+        return subjectRepo.findSubjectByGroup_IdIsAndNameIs(groupId, name);
+    }
 }

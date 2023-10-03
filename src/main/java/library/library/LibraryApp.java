@@ -9,7 +9,4 @@ public class LibraryApp {
     public static void main(String[] args) {
         SpringApplication.run(LibraryApp.class, args);
     }
-
-    // wddw
-// хуйке
 }
