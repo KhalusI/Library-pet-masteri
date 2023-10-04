@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Subject Page</title>
+</head>
+<body>
+<h1>Subject: <span th:text="${subject.name}"></span></h1>
+
+<h2>Books:</h2>
+<ul>
+    <li th:each="book : ${subject.getBooks()}">
+        <div>
+            <span th:text="${book.name}"></span>
+            <span th:text="${book.author}"></span>
+
+            <embed th:src="../../booksFiles/sample.pdf + " width="400px" height="800px">
+        </div>
+    </li>
+</ul>
+</body>
+</html>

@@ -55,13 +55,19 @@ public class AdminController {
 
             String fileName =
                     fileNameCreator.createNameForFile(file, Long.valueOf(groupId), subject.getId() + 1, name, author);
+
+            System.out.println(fileName);
+            System.out.println(fileName);
+            System.out.println(fileName);
+
             String filePath =
                     saveFile.saveFileAndGetFilePath(file, fileName);
 
-            Book book = new Book();
+            System.out.println(filePath);
+            System.out.println(filePath);
+            System.out.println(filePath);
 
-            System.out.println(subject.getName());
-            System.out.println(subject.getGroup());
+            Book book = new Book();
 
             book.setSubject(subject);
             subject.setGroup(group);
