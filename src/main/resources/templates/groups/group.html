@@ -5,8 +5,6 @@
     <title th:text="${group.getName()}"></title>
 </head>
 <body>
-<b1 th:text="${group.getId()}"></b1>
-
 
     <th:block th:each="subject : ${group.getSubjects()}">
         <a th:href="@{/subjects/{id}(id=${subject.getId()})}" th:text="${subject.getName()}"></a> <br><br>

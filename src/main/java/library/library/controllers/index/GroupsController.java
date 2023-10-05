@@ -2,6 +2,7 @@ package library.library.controllers.index;
 
 import library.library.services.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +20,8 @@ public class GroupsController {
     }
 
     @GetMapping
-    public String groupsIndex(){
+    public String groupsIndex(Model model){
+        model.addAttribute("groups", groupService.getAll());
         return "groups/index";
     }
 
