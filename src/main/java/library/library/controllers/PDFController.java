@@ -26,7 +26,6 @@ public class PDFController {
     private final BookService bookService;
     private final PathToFileName pathToFileName;
 
-
     @Autowired
     public PDFController(BookService bookService, PathToFileName pathToFileName) {
         this.bookService = bookService;
