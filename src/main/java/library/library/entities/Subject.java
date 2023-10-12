@@ -1,9 +1,7 @@
 package library.library.entities;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Setter;
 import lombok.ToString;
 
 import java.util.List;

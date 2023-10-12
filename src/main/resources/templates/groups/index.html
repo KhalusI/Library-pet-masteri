@@ -6,6 +6,28 @@
 </head>
 <body>
 
+<ul>
+    <li>Home
+        <ul>
+            <li>Sub Menu
+                <ul>
+                    <li>
+                        post sub menu
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul>
+            <li>Sub Menu2 </li>
+        </ul>
+
+        <ul>
+            <li>Sub Menu 3</li>
+        </ul>
+    </li>
+</ul>
+
 <th:block th:each="group : ${groups}">
     <a th:href="@{/groups/{id}(id=${group.getId()})}" th:text="${group.getName()}"></a> <br><br>
 </th:block>

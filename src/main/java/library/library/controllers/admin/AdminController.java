@@ -7,15 +7,8 @@ import library.library.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
@@ -35,12 +28,24 @@ public class AdminController {
         this.fileNameCreator = fileNameCreator;
     }
 
-    @GetMapping("/upload")
-    public String uploadPdf(Model model){
-        model.addAttribute("groups", groupService.getAll());
-        model.addAttribute("subjects", subjectService.getAllWhereGroupId(1L));
+    @GetMapping("/upload/{id}")
+    public String uploadPdf(Model model, @PathVariable Long id){
+        model.addAttribute("group", groupService.getById(id));
+        model.addAttribute("subjects", groupService.getById(id).getSubjects());
 
         return "admin/upload_pdf";
+    }
+
+    @GetMapping("/upload")
+    public String uploadIndex(Model model){
+        model.addAttribute("groups", groupService.getAll());
+
+        return "admin/groups_index";
+    }
+
+    @GetMapping("/uploadSuccess")
+    public String uploadSuccess(){
+        return "admin/upload_success";
     }
 
     @PostMapping("/uploadPost")
@@ -56,16 +61,9 @@ public class AdminController {
             String fileName =
                     fileNameCreator.createNameForFile(file, Long.valueOf(groupId), subject.getId() + 1, name, author);
 
-            System.out.println(fileName);
-            System.out.println(fileName);
-            System.out.println(fileName);
-
             String filePath =
                     saveFile.saveFileAndGetFilePath(file, fileName);
 
-            System.out.println(filePath);
-            System.out.println(filePath);
-            System.out.println(filePath);
 
             Book book = new Book();
 
@@ -82,6 +80,6 @@ public class AdminController {
         }
 
 
-        return "redirect:upload";
+        return "redirect:uploadSuccess";
     }
 }
