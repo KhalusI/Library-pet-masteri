@@ -81,10 +81,14 @@
 <!--                                </li>-->
 <!--                            </ul>-->
 
-                            <a class="nav-link dropdown-toggle"  id="booksDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Книги
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="booksDropdown">
+                                <a class="nav-link "  id="booksDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Книги
+                                </a>
+                            <ul class="dropdown-menu" id="cssmenu" aria-labelledby="booksDropdown"
+                            style="
+                                   max-height:550px;
+                                   overflow-x:hidden;
+                                   overflow-y:visible;">
                                 <li th:each="group : ${groups}">
                                     <a class="dropdown-item group-name" data-toggle="collapse" data-target="#group-${group.id}">
                                         <span th:text="${group.getName()}"></span>
