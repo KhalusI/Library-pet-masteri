@@ -3,6 +3,7 @@ package library.library.services;
 import library.library.entities.Group;
 import library.library.repositories.GroupRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class GroupService {
     }
 
     public List<Group> getAll(){
-        return groupRepo.findAll();
+        Sort sort = Sort.by(Sort.Direction.ASC, "id");
+        return groupRepo.findAll(sort);
     }
 }

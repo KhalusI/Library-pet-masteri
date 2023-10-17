@@ -26,8 +26,8 @@
         <style>
             @media (min-width: 991px) {
                 .dropdown-menu.center {
-                    left: 50.5% !important;
-                    transform: translateX(-50%);
+                    left: 70% !important;
+                    transform: translateX(-70%);
                 }
             }
         </style>
@@ -57,17 +57,12 @@
                     <div class="d-lg-none">
                         <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
 
-                        <a href="product-detail.html" class="bi-bag custom-icon"></a>
                     </div>
 
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav mx-auto">
                             <li class="nav-item">
                                 <a class="nav-link active" th:href="@{/}">Головна</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="about.html">About</a>
                             </li>
 
                                 <a class="nav-link "  id="booksDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -78,6 +73,9 @@
                                        max-height:550px;
                                        overflow-x:hidden;
                                        overflow-y:visible;">
+                                    <li>
+                                        <a class="dropdown-item group-name" data-toggle="collapse" th:href="@{/admin/upload}">Добавити книгу</a>
+                                    </li>
                                         <li th:each="group : ${groups}">
                                             <a class="dropdown-item group-name" data-toggle="collapse" data-target="#group-${group.id}">
                                                 <span th:text="${group.getName()}"></span>
@@ -101,26 +99,13 @@
 
 
 
-
-
-                            <!--                            -->
                             <li class="nav-item">
-                                <a class="nav-link" href="products.html">Products</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="faq.html">FAQs</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Contact</a>
+                                <a class="nav-link" href="https://sclnau.com.ua">Сайт коледжу</a>
                             </li>
                         </ul>
 
                         <div class="d-none d-lg-block">
                             <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
-
-                            <a href="product-detail.html" class="bi-bag custom-icon"></a>
                         </div>
                     </div>
                 </div>
@@ -128,7 +113,7 @@
 
             <section class="slick-slideshow">   
                 <div class="slick-custom">
-                    <img src="images/slideshow/medium-shot-business-women-high-five.jpeg" class="img-fluid" alt="">
+                    <img src="images/slideshow/lib1.jpg" class="img-fluid" alt="">
 
                     <div class="slick-bottom">
                         <div class="container">
@@ -136,9 +121,9 @@
                                 <div class="col-lg-6 col-10">
                                     <h1 class="slick-title">Бібліотека SCLNAU</h1>
 
-                                    <p class="lead text-white mt-lg-3 mb-lg-5">Little fashion template comes with total 8 HTML pages provided by Tooplate website.</p>
+                                    <p class="lead text-white mt-lg-3 mb-lg-5">Знання в кожному клацанні: Бібліотека SCLNAU – ваш вірний компаньйон у світі навчання!</p>
 
-                                    <a href="about.html" class="btn custom-btn">Learn more about us</a>
+                                    <a href="about.html" class="btn custom-btn">Посилання</a>
                                 </div>
                             </div>
                         </div>
@@ -146,17 +131,17 @@
                 </div>
 
                 <div class="slick-custom">
-                    <img src="images/slideshow/team-meeting-renewable-energy-project.jpeg" class="img-fluid" alt="">
+                    <img src="images/slideshow/lib2.jpg" class="img-fluid" alt="">
 
                     <div class="slick-bottom">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6 col-10">
-                                    <h1 class="slick-title">New Design</h1>
+                                    <h1 class="slick-title">Бібліотека SCLNAU</h1>
 
-                                    <p class="lead text-white mt-lg-3 mb-lg-5">Please share this Little Fashion template to your friends. Thank you for supporting us.</p>
+                                    <p class="lead text-white mt-lg-3 mb-lg-5">Розширюй горизонти разом із SCLNAU: тут знання - твій ключ до успіху!</p>
 
-                                    <a href="product.html" class="btn custom-btn">Explore products</a>
+                                    <a href="contact.html" class="btn custom-btn">Посилання</a>
                                 </div>
                             </div>
                         </div>
@@ -164,17 +149,17 @@
                 </div>
 
                 <div class="slick-custom">
-                    <img src="images/slideshow/two-business-partners-working-together-office-computer.jpeg" class="img-fluid" alt="">
+                    <img src="images/slideshow/lib3.jpg" class="img-fluid" alt="">
 
                     <div class="slick-bottom">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6 col-10">
-                                    <h1 class="slick-title">Talk to us</h1>
+                                    <h1 class="slick-title">Бібліотека SCLNAU</h1>
 
-                                    <p class="lead text-white mt-lg-3 mb-lg-5">Tooplate is one of the best HTML CSS template websites for everyone.</p>
+                                    <p class="lead text-white mt-lg-3 mb-lg-5">Світ знань на долонях: SCLNAU - твоя вірна бібліотека онлайн!</p>
 
-                                    <a href="contact.html" class="btn custom-btn">Work with us</a>
+                                    <a href="contact.html" class="btn custom-btn">Посилання</a>
                                 </div>
                             </div>
                         </div>
