@@ -22,6 +22,9 @@ public class Group {
     @Column(name = "group_name")
     private String name;
 
+    @Column(name = "group_img")
+    private String image;
+
     @OneToMany(mappedBy = "group")
     private List<Subject> subjects = new ArrayList<>();
 

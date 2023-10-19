@@ -38,10 +38,8 @@ public class UserController {
     }
 
     @GetMapping("/upload")
-    public String uploadIndex(Model model){
-        model.addAttribute("groups", groupService.getAll());
-
-        return "user/groups_index";
+    public String uploadIndex(){
+        return "redirect:/groups";
     }
 
     @GetMapping("/uploadSuccess")
