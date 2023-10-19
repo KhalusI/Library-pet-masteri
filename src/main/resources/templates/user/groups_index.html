@@ -6,7 +6,7 @@
 </head>
 <body>
 <th:block th:each="group : ${groups}">
-    <a th:href="@{/admin/upload/{id}(id=${group.getId()})}" th:text="${group.getName()}"></a> <br><br>
+    <a th:href="@{/user/upload/{id}(id=${group.getId()})}" th:text="${group.getName()}"></a> <br><br>
 </th:block>
 </body>
 </html>

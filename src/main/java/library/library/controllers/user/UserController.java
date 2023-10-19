@@ -1,4 +1,4 @@
-package library.library.controllers.admin;
+package library.library.controllers.user;
 
 import library.library.entities.Book;
 import library.library.entities.Group;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-@RequestMapping("/admin")
-public class AdminController {
+@RequestMapping("/user")
+public class UserController {
     private final GroupService groupService;
     private final SubjectService subjectService;
     private final SaveFile saveFile;
@@ -20,7 +20,7 @@ public class AdminController {
     private final FileNameCreator fileNameCreator;
 
     @Autowired
-    public AdminController(GroupService groupService, SubjectService subjectService, SaveFile saveFile, BookService bookService, FileNameCreator fileNameCreator) {
+    public UserController(GroupService groupService, SubjectService subjectService, SaveFile saveFile, BookService bookService, FileNameCreator fileNameCreator) {
         this.groupService = groupService;
         this.subjectService = subjectService;
         this.saveFile = saveFile;
@@ -32,20 +32,21 @@ public class AdminController {
     public String uploadPdf(Model model, @PathVariable Long id){
         model.addAttribute("group", groupService.getById(id));
         model.addAttribute("subjects", groupService.getById(id).getSubjects());
+        model.addAttribute("groups", groupService.getAll());
 
-        return "admin/upload_pdf";
+        return "user/upload_pdf";
     }
 
     @GetMapping("/upload")
     public String uploadIndex(Model model){
         model.addAttribute("groups", groupService.getAll());
 
-        return "admin/groups_index";
+        return "user/groups_index";
     }
 
     @GetMapping("/uploadSuccess")
     public String uploadSuccess(){
-        return "admin/upload_success";
+        return "user/upload_success";
     }
 
     @PostMapping("/uploadPost")
