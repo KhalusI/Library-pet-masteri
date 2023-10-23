@@ -79,6 +79,7 @@ public class UserController {
         }
 
 
-        return "redirect:uploadSuccess";
+        return "redirect:upload";
+//        return "redirect:uploadSuccess";
     }
 }
