@@ -1,5 +1,7 @@
 package library.library.config.security;
 
+import library.library.security.handlers.CustomAccessDeniedHandler;
+import library.library.security.handlers.NoPopupBasicAuthenticationEntryPoint;
 import library.library.services.security.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -30,25 +32,21 @@ public class SpringConfig {
         this.userDetailsService = userDetailsService;
     }
 
-
-
     @Bean
     protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.authorizeHttpRequests(auth ->
                         auth
                                 .requestMatchers(
-                                        "/auth/**",
-                                        "/css/**",
-                                        "/images/**",
-                                        "/img/**",
-                                        "/lib/**",
-                                        "/js/**",
-                                        "/scss/**",
-                                        "/bootstrap",
-                                        "*").permitAll()
+//                                        "/auth/**",
+//                                        "/css/**",
+//                                        "/images/**",
+//                                        "/img/**",
+//                                        "/lib/**",
+//                                        "/js/**",
+//                                        "/scss/**",
+                                        "/**").permitAll()
                                 .anyRequest().authenticated())
                 .csrf(AbstractHttpConfigurer::disable)
-                .httpBasic(Customizer.withDefaults())
                 .sessionManagement(ses ->
                         ses.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
                                 .sessionFixation().migrateSession()
@@ -64,26 +62,20 @@ public class SpringConfig {
                         .invalidateHttpSession(true)
                         .clearAuthentication(true)
                         .deleteCookies("JSESSIONID")
-                        .logoutSuccessUrl("/auth/login"))
+                        .logoutSuccessUrl("/"))
+                .exceptionHandling(httpSecurityExceptionHandlingConfigurer ->
+                        httpSecurityExceptionHandlingConfigurer.accessDeniedPage("/denied")
+                                .accessDeniedHandler(new CustomAccessDeniedHandler()))
                 .authenticationProvider(daoAuthenticationProvider())
                 .build();
     }
 
-    /**
-     * Creates a PasswordEncoder bean for securely encoding and decoding passwords.
-     *
-     * @return A BCryptPasswordEncoder instance with strength 12.
-     */
     @Bean
     protected PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder(12);
     }
 
-    /**
-     * Creates a DaoAuthenticationProvider bean to authenticate users based on user details service and password encoder.
-     *
-     * @return A DaoAuthenticationProvider instance configured with user details service and password encoder.
-     */
+
     @Bean
     protected DaoAuthenticationProvider daoAuthenticationProvider(){
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();

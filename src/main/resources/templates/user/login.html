@@ -52,10 +52,10 @@ https://www.tooplate.com/view/2127-little-fashion
 
                             <div class="row">
                                 <div class="col-lg-8 col-11 mx-auto">
-                                    <form role="form" method="post">
+                                    <form class="form-signin" method="post" action="/auth/login">
 
                                         <div class="form-floating mb-4 p-0">
-                                            <input type="email" name="email" id="email" pattern="^[a-zA-Z0-9._%+-]+@sclnau\.com\.ua$" class="form-control" placeholder="Електронна адреса" required>
+                                            <input type="email" name="username" id="email" pattern="^[a-zA-Z0-9._%+-]+@sclnau\.com\.ua$" class="form-control" placeholder="Електронна адреса" required>
 
                                             <label for="email">Електронна адреса</label>
                                         </div>
@@ -71,7 +71,6 @@ https://www.tooplate.com/view/2127-little-fashion
                                         </button>
 
                                         <p class="text-center">Не маєте аккаунт? <a th:href="@{/auth/registration}">Створіть</a></p>
-
                                     </form>
                                 </div>
                             </div>
