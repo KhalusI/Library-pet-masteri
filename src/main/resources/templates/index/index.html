@@ -16,12 +16,12 @@
 
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/bootstrap-icons.css" rel="stylesheet">
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/bootstrap-icons.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="css/slick.css"/>
+        <link rel="stylesheet" href="/css/slick.css"/>
 
-        <link href="css/tooplate-little-fashion.css" rel="stylesheet">
+        <link href="/css/tooplate-little-fashion.css" rel="stylesheet">
 
         <style>
             @media (min-width: 991px) {
@@ -53,11 +53,6 @@
                     <a class="navbar-brand" th:href="@{/}">
                         <strong><span>Бібліотека</span> SFCLNUP</strong>
                     </a>
-
-                    <div class="d-lg-none">
-                        <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
-
-                    </div>
 
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav mx-auto">
@@ -116,7 +111,7 @@
 
             <section class="slick-slideshow">   
                 <div class="slick-custom">
-                    <img src="images/slideshow/lib1.jpg" class="img-fluid" alt="">
+                    <img src="/images/slideshow/lib1.jpg" class="img-fluid" alt="">
 
                     <div class="slick-bottom">
                         <div class="container">
@@ -133,7 +128,7 @@
                 </div>
 
                 <div class="slick-custom">
-                    <img src="images/slideshow/lib2.jpg" class="img-fluid" alt="">
+                    <img src="/images/slideshow/lib2.jpg" class="img-fluid" alt="">
 
                     <div class="slick-bottom">
                         <div class="container">
@@ -149,7 +144,7 @@
                 </div>
 
                 <div class="slick-custom">
-                    <img src="images/slideshow/lib3.jpg" class="img-fluid" alt="">
+                    <img src="/images/slideshow/lib3.jpg" class="img-fluid" alt="">
 
                     <div class="slick-bottom">
                         <div class="container">
@@ -169,59 +164,15 @@
 
         </main>
 
-        <footer class="site-footer">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-3 col-10 me-auto mb-4">
-                        <h4 class="text-white mb-3"><a th:href="@{/}">Бібліотека</a> SFCLNUP</h4>
-                        <p class="copyright-text text-muted mt-lg-5 mb-4 mb-lg-0">Copyright © 2022 <strong>Little Fashion</strong></p>
-                        <br>
-                        <p class="copyright-text">Designed by <a href="https://www.tooplate.com/" target="_blank">Tooplate</a></p>
-                    </div>
-
-                    <div class="col-lg-5 col-8">
-                        <h5 class="text-white mb-3">Sitemap</h5>
-
-                        <ul class="footer-menu d-flex flex-wrap">
-                            <li class="footer-menu-item"><a href="about.html" class="footer-menu-link">Story</a></li>
-
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Products</a></li>
-
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Privacy policy</a></li>
-
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">FAQs</a></li>
-
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Contact</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-4">
-                        <h5 class="text-white mb-3">Social</h5>
-
-                        <ul class="social-icon">
-
-                            <li><a href="#" class="social-icon-link bi-youtube"></a></li>
-
-                            <li><a href="#" class="social-icon-link bi-whatsapp"></a></li>
-
-                            <li><a href="#" class="social-icon-link bi-instagram"></a></li>
-
-                            <li><a href="#" class="social-icon-link bi-skype"></a></li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </footer>
+        <div th:replace="/fragments/footer :: footer"></div>
 
         <!-- JAVASCRIPT FILES -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/Headroom.js"></script>
-        <script src="js/jQuery.headroom.js"></script>
-        <script src="js/slick.min.js"></script>
-        <script src="js/custom.js"></script>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/Headroom.js"></script>
+        <script src="/js/jQuery.headroom.js"></script>
+        <script src="/js/slick.min.js"></script>
+        <script src="/js/custom.js"></script>
 
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
