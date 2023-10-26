@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Бібліотека SFCLNUP</title>
+    <title>Увійти</title>
 
     <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,15 +22,6 @@
     <link rel="stylesheet" href="/css/slick.css"/>
 
     <link href="/css/tooplate-little-fashion.css" rel="stylesheet">
-
-    <style>
-        @media (min-width: 991px) {
-            .dropdown-menu.center {
-                left: 70% !important;
-                transform: translateX(-70%);
-            }
-        }
-    </style>
 
 </head>
 
@@ -55,7 +46,12 @@
             </a>
 
             <div class="d-lg-none">
-                <a th:href="@{/groups}" class="bi-person custom-icon me-3"></a>
+                <th:block th:if="${isAuth == true}">
+                    <a th:href="@{/groups}" class="bi-person custom-icon me-3"></a>
+                </th:block>
+                <th:block th:if="${isAuth == false}">
+                    <a th:href="@{/auth/login}" class="bi-person custom-icon me-3"></a>
+                </th:block>
             </div>
 
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -102,56 +98,59 @@
                 </ul>
 
                 <div class="d-none d-lg-block">
-                    <a th:href="@{/groups}" class="bi-person custom-icon me-3"></a>
+                    <th:block th:if="${isAuth == true}">
+                        <a th:href="@{/groups}" class="bi-person custom-icon me-3"></a>
+                    </th:block>
+                    <th:block th:if="${isAuth == false}">
+                        <a th:href="@{/auth/login}" class="bi-person custom-icon me-3"></a>
+                    </th:block>
                 </div>
 
             </div>
         </div>
     </nav>
 
-</main>
+    <section class="sign-in-form section-padding">
+        <div class="container">
+            <div class="row">
 
-<section class="preloader">
-    <div class="spinner">
-        <span class="sk-inner-circle"></span>
-    </div>
-</section>
+                <div class="col-lg-8 mx-auto col-12">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
 
-<section class="featured-product section-padding">
-    <div class="container">
-        <div class="row">
+                    <h1 class="hero-title text-center mb-5">Щось пішло не так...</h1>
 
-            <th:block th:each="group : ${groups}">
-                <div class="col-lg-4 col-12 mb-3">
-                    <div class="product-thumb">
-                        <a th:href="@{/user/upload/{id}(id=${group.getId()})}">
-                            <img th:src="${group.getImage()}" class="img-fluid product-image" alt="Group image" style="height: 330px; width: 330px">
-                        </a>
-
-                        <div class="product-top d-flex">
-                            <span class="product-alert me-auto">Група</span>
-                        </div>
-
-                        <div class="product-info d-flex">
-                            <div>
-                                <h5 class="product-title mb-0">
-                                    <a th:href="@{/user/upload/{id}(id=${group.getId()})}" class="product-title-link" th:text="${group.getName()}"></a>
-                                </h5>
-
-<!--                                <p class="product-p">Якийсь підпис</p>-->
-                            </div>
+                    <div class="row">
+                        <div class="col-lg-8 col-11 mx-auto">
+                            <form class="form-signin" method="get" action="/">
+                                <button type="submit" class="btn custom-btn form-control mt-4 mb-3">
+                                    Повернутися на головну
+                                </button>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                            </form>
                         </div>
                     </div>
+
                 </div>
-            </th:block>
 
+            </div>
         </div>
-    </div>
+    </section>
 
-</section>
+</main>
 
-    <div th:replace="/fragments/footer :: footer"></div>
+<div th:replace="/fragments/footer :: footer"></div>
 
+<!-- JAVASCRIPT FILES -->
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/Headroom.js"></script>
@@ -159,37 +158,5 @@
 <script src="/js/slick.min.js"></script>
 <script src="/js/custom.js"></script>
 
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-
 </body>
-
-<script>
-    $(document).ready(function() {
-        $(".group-name").click(function() {
-            $(this).next(".collapse").toggleClass("show");
-        });
-
-        $(".subject-name").click(function() {
-            $(this).next(".collapse").toggleClass("show");
-        });
-    });
-
-    const dropdownContent = document.querySelector('.dropdown');
-
-    dropdownContent.addEventListener('click', function (e) {
-        e.stopPropagation();
-    });
-
-    document.addEventListener('click', function () {
-        dropdownContent.style.display = 'none';
-    });
-</script>
-
-<script>
-    document.querySelector('.dropdown-menu').addEventListener('click', function(event) {
-        event.stopPropagation();
-    });
-</script>
 </html>

@@ -50,6 +50,10 @@
                                 <div class="col-lg-8 col-11 mx-auto">
                                     <form role="form" method="post" action="/auth/register">
 
+                                        <div th:if="${errorMessage}" class="alert alert-danger">
+                                            <p th:text="${errorMessage}"></p>
+                                        </div>
+
                                         <div class="form-floating">
                                             <input type="email" name="email" id="email" class="form-control" placeholder="Електронна адреса" required>
 
@@ -57,18 +61,18 @@
                                         </div>
 
                                         <div class="form-floating my-4">
-                                            <input type="password" name="password" id="password" pattern="[0-9a-zA-Z]{6,10}" class="form-control" placeholder="Пароль" required>
+                                            <input type="password" name="password" id="password" pattern="{6,10}" class="form-control" placeholder="Пароль" required>
 
                                             <label for="password">Пароль</label>
                                             
-                                            <p class="text-center">* Має включати 0-9 a-Z A-Z від 6 до 10 символів</p>
+                                            <p class="text-center">* Має включати від 6 до 10 символів</p>
                                         </div>
 
                                         <button type="submit" class="btn custom-btn form-control mt-4 mb-3">
                                             Створити обліковий запис
                                         </button>
 
-                                        <p class="text-center">Маєте аккаунт? <a th:href="@{/auth/login}">Увійдіть</a></p>
+                                        <p class="text-center">Маєте акаунт? <a th:href="@{/auth/login}">Увійдіть</a></p>
 
                                     </form>
                                 </div>

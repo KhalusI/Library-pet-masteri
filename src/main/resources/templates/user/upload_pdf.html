@@ -56,6 +56,71 @@
 
 <main>
 
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <a class="navbar-brand" th:href="@{/}">
+                <strong><span>Бібліотека</span> SFCLNUP</strong>
+            </a>
+
+            <div class="d-lg-none">
+                <a th:href="@{/groups}" class="bi-person custom-icon me-3"></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" th:href="@{/}">Головна</a>
+                    </li>
+
+                    <a class="nav-link "  id="booksDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Книги
+                    </a>
+                    <ul class="dropdown-menu center" id="cssmenu" aria-labelledby="booksDropdown"
+                        style="
+                                       max-height:550px;
+                                       overflow-x:hidden;
+                                       overflow-y:visible;">
+                        <li>
+                            <a class="dropdown-item group-name" data-toggle="collapse" th:href="@{/user/upload}">Добавити книгу</a>
+                        </li>
+                        <li th:each="group : ${groups}">
+                            <a class="dropdown-item group-name" data-toggle="collapse" data-target="#group-${group.id}">
+                                <span th:text="${group.getName()}"></span>
+                            </a>
+                            <ul id="group-${group.id}" class="collapse">
+                                <li th:each="subject : ${group.getSubjects()}">
+                                    <a class="dropdown-item subject-name" data-toggle="collapse" data-target="#subject-${subject.id}">
+                                        <span th:text="${subject.getName()}"></span>
+                                    </a>
+                                    <ul id="subject-${subject.id}" class="collapse">
+                                        <li th:each="book : ${subject.getBooks()}">
+                                            <a th:href="@{/pdf/previewPDF/{id}(id=${book.getId()})}" class="dropdown-item book">
+                                                <span th:text="${book.getName()}"></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://sclnau.com.ua">Сайт коледжу</a>
+                    </li>
+                </ul>
+
+                <div class="d-none d-lg-block">
+                        <a th:href="@{/groups}" class="bi-person custom-icon me-3"></a>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
     <section class="contact section-padding">
         <div class="container">
             <div class="row">
@@ -142,66 +207,6 @@
 
         <img src="/images/upload/upload.jpg" class="header-image img-fluid" alt="">
     </section>
-
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <a class="navbar-brand" th:href="@{/}">
-                <strong><span>Бібліотека</span> SFCLNUP</strong>
-            </a>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" th:href="@{/}">Головна</a>
-                    </li>
-
-                    <a class="nav-link "  id="booksDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Книги
-                    </a>
-                    <ul class="dropdown-menu center" id="cssmenu" aria-labelledby="booksDropdown"
-                        style="
-                                       max-height:550px;
-                                       overflow-x:hidden;
-                                       overflow-y:visible;">
-                        <li>
-                            <a class="dropdown-item group-name" data-toggle="collapse" th:href="@{/user/upload}">Добавити книгу</a>
-                        </li>
-                        <li th:each="group : ${groups}">
-                            <a class="dropdown-item group-name" data-toggle="collapse" data-target="#group-${group.id}">
-                                <span th:text="${group.getName()}"></span>
-                            </a>
-                            <ul id="group-${group.id}" class="collapse">
-                                <li th:each="subject : ${group.getSubjects()}">
-                                    <a class="dropdown-item subject-name" data-toggle="collapse" data-target="#subject-${subject.id}">
-                                        <span th:text="${subject.getName()}"></span>
-                                    </a>
-                                    <ul id="subject-${subject.id}" class="collapse">
-                                        <li th:each="book : ${subject.getBooks()}">
-                                            <a th:href="@{/pdf/previewPDF/{id}(id=${book.getId()})}" class="dropdown-item book">
-                                                <span th:text="${book.getName()}"></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://sclnau.com.ua">Сайт коледжу</a>
-                    </li>
-                </ul>
-
-                <div class="d-none d-lg-block">
-                        <a th:href="@{/groups}" class="bi-person custom-icon me-3"></a>
-                </div>
-            </div>
-        </div>
-    </nav>
 
 </main>
 

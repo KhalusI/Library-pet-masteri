@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Optional;
+
 @Controller
 @RequestMapping("/auth")
 public class AuthController {
@@ -29,7 +31,15 @@ public class AuthController {
 
     @PostMapping("/register")
     public String registerUser(@RequestParam("email") String email,
-                               @RequestParam("password") String password){
+                               @RequestParam("password") String password,
+                               Model model){
+
+        Optional<User> user1 = userService.getByEmail(email);
+
+        if(user1.isPresent()){
+            model.addAttribute("errorMessage", "Ця електронна адреса вже використовується");
+            return "user/registration";
+        }
 
         User user = new User();
         user.setEmail(email);

@@ -22,14 +22,7 @@
         <link rel="stylesheet" href="/css/slick.css"/>
 
         <link href="/css/tooplate-little-fashion.css" rel="stylesheet">
-        
-<!--
 
-Tooplate 2127 Little Fashion
-
-https://www.tooplate.com/view/2127-little-fashion
-
--->
     </head>
     
     <body>
@@ -50,9 +43,19 @@ https://www.tooplate.com/view/2127-little-fashion
 
                             <h1 class="hero-title text-center mb-5">Увійти</h1>
 
+                            <div class="div-separator w-50 m-auto my-5"><span></span></div>
+
                             <div class="row">
                                 <div class="col-lg-8 col-11 mx-auto">
                                     <form class="form-signin" method="post" action="/auth/login">
+
+                                        <div th:if="${param.success}" class="alert alert-success">
+                                            <p>Обліковий запис успішно створено</p>
+                                        </div>
+
+                                        <div th:if="${param.error}" class="alert alert-danger">
+                                            <p>Даної кобмінації логіну та паролю не знайдено</p>
+                                        </div>
 
                                         <div class="form-floating mb-4 p-0">
                                             <input type="email" name="username" id="email" pattern="^[a-zA-Z0-9._%+-]+@sclnau\.com\.ua$" class="form-control" placeholder="Електронна адреса" required>
@@ -70,7 +73,7 @@ https://www.tooplate.com/view/2127-little-fashion
                                             Увійти
                                         </button>
 
-                                        <p class="text-center">Не маєте аккаунт? <a th:href="@{/auth/registration}">Створіть</a></p>
+                                        <p class="text-center">Не маєте акаунт? <a th:href="@{/auth/registration}">Створіть</a></p>
                                     </form>
                                 </div>
                             </div>
