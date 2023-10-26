@@ -37,6 +37,7 @@ public class PDFController {
         String pdfFileName = pathToFileName.getFileNameFromPath(book.getPdfPath());
 
         Path path = Paths.get("src/main/resources/booksFiles/"+pdfFileName);
+//        Path path = Paths.get("app/booksFiles/"+pdfFileName);
         byte[] pdf = Files.readAllBytes(path);
 //        pdfFileName = pdfFileName.replaceAll("[^\\x00-\\x7F]", "");
         HttpHeaders headers = new HttpHeaders();

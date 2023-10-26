@@ -121,6 +121,12 @@
     <div class="container">
         <div class="row">
 
+            <form th:action="@{/auth/logout}" method="post">
+                <button type="submit" class="btn custom-btn form-control mt-4 mb-3">
+                    Вийти з акаунта
+                </button>
+            </form>
+
             <th:block th:each="group : ${groups}">
                 <div class="col-lg-4 col-12 mb-3">
                     <div class="product-thumb">

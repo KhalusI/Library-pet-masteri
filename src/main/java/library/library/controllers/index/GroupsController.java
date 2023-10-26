@@ -35,21 +35,6 @@ public class GroupsController {
 
         return "groups/index";
     }
-
-    @GetMapping("/{id}")
-    public String group(@PathVariable Long id, Model model){
-        model.addAttribute("group", groupService.getById(id));
-
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-        boolean isAuthenticated = authentication != null && !authentication.getName().equals("anonymousUser");
-
-        if(!isAuthenticated){
-            return "redirect:auth/login";
-        }
-
-        return "groups/group";
-    }
 }
 
 

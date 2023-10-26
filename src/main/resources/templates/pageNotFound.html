@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Увійти</title>
+    <title>Бібліотека 404</title>
 
     <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,6 +22,16 @@
     <link rel="stylesheet" href="/css/slick.css"/>
 
     <link href="/css/tooplate-little-fashion.css" rel="stylesheet">
+
+    <style>
+        @media (min-width: 991px) {
+            .dropdown-menu.center {
+                left: 70% !important;
+                transform: translateX(-70%);
+            }
+
+        }
+    </style>
 
 </head>
 
@@ -57,7 +67,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" th:href="@{/}">Головна</a>
+                        <a class="nav-link" th:href="@{/}">Головна</a>
                     </li>
 
                     <a class="nav-link "  id="booksDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
