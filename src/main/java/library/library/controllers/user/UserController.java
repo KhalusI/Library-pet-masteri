@@ -42,11 +42,6 @@ public class UserController {
         return "redirect:/groups";
     }
 
-    @GetMapping("/uploadSuccess")
-    public String uploadSuccess(){
-        return "user/upload_success";
-    }
-
     @PostMapping("/uploadPost")
     public String handleFormSubmission(@RequestParam("groupId") String groupId,
                                        @RequestParam("subjectName") String subjectName,

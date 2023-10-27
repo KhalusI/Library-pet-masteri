@@ -4,6 +4,7 @@ import library.library.entities.Book;
 import library.library.services.BookService;
 import library.library.services.PathToFileName;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,9 @@ public class PDFController {
     private final BookService bookService;
     private final PathToFileName pathToFileName;
 
+    @Value("${upload.path}")
+    String fullPath;
+
     @Autowired
     public PDFController(BookService bookService, PathToFileName pathToFileName) {
         this.bookService = bookService;
@@ -36,12 +40,12 @@ public class PDFController {
 
         String pdfFileName = pathToFileName.getFileNameFromPath(book.getPdfPath());
 
-        Path path = Paths.get("src/main/resources/booksFiles/"+pdfFileName);
-//        Path path = Paths.get("app/booksFiles/"+pdfFileName);
+        Path path = Paths.get(fullPath+pdfFileName);
+
         byte[] pdf = Files.readAllBytes(path);
-//        pdfFileName = pdfFileName.replaceAll("[^\\x00-\\x7F]", "");
+
         HttpHeaders headers = new HttpHeaders();
-//        headers.setContentDisposition(ContentDisposition.builder("inline").filename(pdfFileName).build());
+
         headers.setContentType(MediaType.APPLICATION_PDF);
 
         return ResponseEntity.ok().headers(headers).body(pdf);
