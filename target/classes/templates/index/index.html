@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Бібліотека SFCLNUP</title>
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/bootstrap-icons.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="/css/slick.css"/>
+
+        <link href="/css/tooplate-little-fashion.css" rel="stylesheet">
+
+        <style>
+            @media (min-width: 991px) {
+                .dropdown-menu.center {
+                    left: 70% !important;
+                    transform: translateX(-70%);
+                }
+            }
+
+        </style>
+
+    </head>
+    
+    <body>
+
+        <section class="preloader">
+            <div class="spinner">
+                <span class="sk-inner-circle"></span>
+            </div>
+        </section>
+    
+        <main>
+
+<!--            <nav class="navbar navbar-expand-lg">-->
+<!--                <div class="container">-->
+<!--                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--                        <span class="navbar-toggler-icon"></span>-->
+<!--                    </button>-->
+
+<!--                    <a class="navbar-brand" th:href="@{/}">-->
+<!--                        <strong><span>Бібліотека</span> SFCLNUP</strong>-->
+<!--                    </a>-->
+
+<!--                    <div class="collapse navbar-collapse" id="navbarNav">-->
+<!--                        <ul class="navbar-nav mx-auto">-->
+<!--                            <li class="nav-item">-->
+<!--                                <a class="nav-link active" th:href="@{/}">Головна</a>-->
+<!--                            </li>-->
+
+<!--                                <a class="nav-link "  id="booksDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                                    Книги-->
+<!--                                </a>-->
+<!--                                <ul class="dropdown-menu center" id="cssmenu" aria-labelledby="booksDropdown"-->
+<!--                                style="-->
+<!--                                       max-height:550px;-->
+<!--                                       overflow-x:hidden;-->
+<!--                                       overflow-y:visible;">-->
+<!--                                    <li>-->
+<!--                                        <a class="dropdown-item group-name" data-toggle="collapse" th:href="@{/user/upload}">Добавити книгу</a>-->
+<!--                                    </li>-->
+<!--                                        <li th:each="group : ${groups}">-->
+<!--                                            <a class="dropdown-item group-name" data-toggle="collapse" data-target="#group-${group.id}">-->
+<!--                                                <span th:text="${group.getName()}"></span>-->
+<!--                                            </a>-->
+<!--                                            <ul id="group-${group.id}" class="collapse">-->
+<!--                                                <li th:each="subject : ${group.getSubjects()}">-->
+<!--                                                    <a class="dropdown-item subject-name" data-toggle="collapse" data-target="#subject-${subject.id}">-->
+<!--                                                        <span th:text="${subject.getName()}"></span>-->
+<!--                                                    </a>-->
+<!--                                                    <ul id="subject-${subject.id}" class="collapse">-->
+<!--                                                        <li th:each="book : ${subject.getBooks()}">-->
+<!--                                                            <a th:href="@{/pdf/previewPDF/{id}(id=${book.getId()})}" class="dropdown-item book">-->
+<!--                                                                <span th:text="${book.getName()}"></span>-->
+<!--                                                            </a>-->
+<!--                                                        </li>-->
+<!--                                                    </ul>-->
+<!--                                                </li>-->
+<!--                                            </ul>-->
+<!--                                        </li>-->
+<!--                                </ul>-->
+
+<!--                            <li class="nav-item">-->
+<!--                                <a class="nav-link" href="https://sclnau.com.ua">Сайт коледжу</a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+
+<!--                        <div class="d-none d-lg-block">-->
+<!--                            <th:block th:if="${isAuth == true}">-->
+<!--                                <a th:href="@{/groups}" class="bi-person custom-icon me-3"></a>-->
+<!--                            </th:block>-->
+<!--                            <th:block th:if="${isAuth == false}">-->
+<!--                                <a th:href="@{/auth/login}" class="bi-person custom-icon me-3"></a>-->
+<!--                            </th:block>-->
+<!--                        </div>-->
+
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </nav>-->
+
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <a class="navbar-brand" th:href="@{/}">
+                        <strong><span>Бібліотека</span> SFCLNUP</strong>
+                    </a>
+
+                    <div class="d-lg-none">
+                    <th:block th:if="${isAuth == true}">
+                            <a th:href="@{/groups}" class="bi-person custom-icon me-3"></a>
+                    </th:block>
+                    <th:block th:if="${isAuth == false}">
+                            <a th:href="@{/auth/login}" class="bi-person custom-icon me-3"></a>
+                    </th:block>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" th:href="@{/}">Головна</a>
+                            </li>
+
+                            <a class="nav-link "  id="booksDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Книги
+                            </a>
+                            <ul class="dropdown-menu center" id="cssmenu" aria-labelledby="booksDropdown"
+                                style="
+                                       max-height:550px;
+                                       overflow-x:hidden;
+                                       overflow-y:visible;">
+                                <li>
+                                    <a class="dropdown-item group-name" data-toggle="collapse" th:href="@{/user/upload}">Добавити книгу</a>
+                                </li>
+                                <li th:each="group : ${groups}">
+                                    <a class="dropdown-item group-name" data-toggle="collapse" data-target="#group-${group.id}">
+                                        <span th:text="${group.getName()}"></span>
+                                    </a>
+                                    <ul id="group-${group.id}" class="collapse">
+                                        <li th:each="subject : ${group.getSubjects()}">
+                                            <a class="dropdown-item subject-name" data-toggle="collapse" data-target="#subject-${subject.id}">
+                                                <span th:text="${subject.getName()}"></span>
+                                            </a>
+                                            <ul id="subject-${subject.id}" class="collapse">
+                                                <li th:each="book : ${subject.getBooks()}">
+                                                    <a th:href="@{/pdf/previewPDF/{id}(id=${book.getId()})}" class="dropdown-item book">
+                                                        <span th:text="${book.getName()}"></span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://sclnau.com.ua">Сайт коледжу</a>
+                            </li>
+                        </ul>
+
+                        <div class="d-none d-lg-block">
+                            <th:block th:if="${isAuth == true}">
+                                <a th:href="@{/groups}" class="bi-person custom-icon me-3"></a>
+                            </th:block>
+                            <th:block th:if="${isAuth == false}">
+                                <a th:href="@{/auth/login}" class="bi-person custom-icon me-3"></a>
+                            </th:block>
+                        </div>
+
+                    </div>
+                </div>
+            </nav>
+
+            <section class="slick-slideshow">   
+                <div class="slick-custom">
+                    <img src="/images/slideshow/lib1.jpg" class="img-fluid" alt="">
+
+                    <div class="slick-bottom">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 col-10">
+                                    <h1 class="slick-title">Бібліотека SFCLNUP</h1>
+
+                                    <p class="lead text-white mt-lg-3 mb-lg-5">Знання в кожному клацанні: Бібліотека SFCLNUP – ваш вірний компаньйон у світі навчання!</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slick-custom">
+                    <img src="/images/slideshow/lib2.jpg" class="img-fluid" alt="">
+
+                    <div class="slick-bottom">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 col-10">
+                                    <h1 class="slick-title">Бібліотека SFCLNUP</h1>
+
+                                    <p class="lead text-white mt-lg-3 mb-lg-5">Розширюй горизонти разом із SFCLNUP: тут знання - твій ключ до успіху!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slick-custom">
+                    <img src="/images/slideshow/lib3.jpg" class="img-fluid" alt="">
+
+                    <div class="slick-bottom">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 col-10">
+                                    <h1 class="slick-title">Бібліотека SFCLNUP</h1>
+
+                                    <p class="lead text-white mt-lg-3 mb-lg-5">Світ знань на долонях: SFCLNUP - твоя вірна бібліотека онлайн!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+        <div th:replace="fragments/footer.html :: footer"></div>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/Headroom.js"></script>
+        <script src="/js/jQuery.headroom.js"></script>
+        <script src="/js/slick.min.js"></script>
+        <script src="/js/custom.js"></script>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $(".group-name").click(function() {
+                $(this).next(".collapse").toggleClass("show");
+            });
+
+            $(".subject-name").click(function() {
+                $(this).next(".collapse").toggleClass("show");
+            });
+        });
+
+        const dropdownContent = document.querySelector('.dropdown');
+
+        dropdownContent.addEventListener('click', function (e) {
+            e.stopPropagation();
+        });
+
+        document.addEventListener('click', function () {
+            dropdownContent.style.display = 'none';
+        });
+    </script>
+
+    <script>
+        document.querySelector('.dropdown-menu').addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    </script>
+
+    </body>
+</html>
