@@ -12,7 +12,6 @@ public class SaveFile {
     String filepath;
     public String saveFileAndGetFilePath(MultipartFile multipartFile, String fileName) throws Exception {
 
-
         multipartFile.transferTo(new File(filepath+fileName));
 
         return filepath+fileName;

@@ -9,17 +9,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
+//@Controller
 public class CustomErrorController implements ErrorController {
 
     private final GroupService groupService;
 
-    @Autowired
+//    @Autowired
     public CustomErrorController(GroupService groupService) {
         this.groupService = groupService;
     }
 
-    @RequestMapping("/error")
+//    @RequestMapping("/error")
     public String handleError(Model model) {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

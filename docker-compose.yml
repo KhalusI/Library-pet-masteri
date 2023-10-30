@@ -11,14 +11,7 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:mysql://sql11.freesqldatabase.com:3306/sql11657677
       - SPRING_DATASOURCE_USERNAME=sql11657677
       - SPRING_DATASOURCE_PASSWORD=lQIvaPuGE1
-      - SPRING_DATASOURCE_DRIVER-CLASS-NAME=com.mysql.cj.jdbc.Driver
-      - SPRING_JPA_PROPERTIES_HIBERNATE_DEFAULT_SCHEMA=public
-      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQLDialect
-      - SPRING_JPA_PROPERTIES_HIBERNATE_SHOW_SQL=false
-      - SPRING_JPA_HIBERNATE_DDL-AUTO=create
-      - UPLOAD_PATH=/D:/Intellij Idea Projects/Library-pet-masteri/src/main/resources/booksFiles/
-      - SPRING_SERVLET_MULTIPART_MAX-FILE-SIZE=400MB
-      - SPRING_SERVLET_MULTIPART_MAX-REQUEST-SIZE=400MB
-      - SERVER_ERROR_WHITELABEL_ENABLED=false
     volumes:
-        - ./D:/Intellij Idea Projects/Library-pet-masteri/src/main/resources/booksFiles/:/app/booksFiles/
+        - myapp-data:/app/booksFiles/
+volumes:
+  myapp-data:

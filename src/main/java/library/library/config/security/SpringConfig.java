@@ -34,16 +34,7 @@ public class SpringConfig {
     protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.authorizeHttpRequests(auth ->
                         auth
-                                .requestMatchers(
-//                                        "/auth/**",
-//                                        "/css/**",
-//                                        "/images/**",
-//                                        "/img/**",
-//                                        "/lib/**",
-//                                        "/js/**",
-//                                        "/scss/**",
-                                        "/**").permitAll()
-                                .anyRequest().authenticated())
+                                .anyRequest().permitAll())
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(ses ->
                         ses.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
@@ -52,7 +43,6 @@ public class SpringConfig {
                                 .maximumSessions(1)
                                 .expiredUrl("/auth/login?expired=true"))
                 .formLogin(form -> form.loginPage("/auth/login")
-                        .permitAll()
                         .defaultSuccessUrl("/", true)
                         .failureUrl("/auth/login?error=true"))
                 .logout(logout -> logout
