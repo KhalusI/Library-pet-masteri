@@ -1,8 +1,6 @@
 package library.library.controllers.index;
 
-import library.library.entities.User;
 import library.library.services.GroupService;
-import library.library.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,14 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class IndexController {
 
     private final GroupService groupService;
-    private final UserService userService;
-
-    private User currentUser;
 
     @Autowired
-    public IndexController(GroupService groupService, UserService userService) {
+    public IndexController(GroupService groupService) {
         this.groupService = groupService;
-        this.userService = userService;
     }
 
     @GetMapping
@@ -35,11 +29,6 @@ public class IndexController {
         model.addAttribute("isAuth", isAuthenticated);
 
         return "index/index";
-    }
-
-    @GetMapping("/auth/logout")
-    public String logoutGet(){
-        return "user/logout";
     }
 
 }
