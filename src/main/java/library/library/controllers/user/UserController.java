@@ -52,14 +52,17 @@ public class UserController {
             Group group = groupService.getById(Long.valueOf(groupId));
             Subject subject = subjectService.getByNameAndGroupId(subjectName, group.getId());
 
-            String fileName =
-                    fileNameCreator.createNameForFile(file, Long.valueOf(groupId), subject.getId() + 1, name, author);
-
-            String filePath =
-                    saveFile.saveFileAndGetFilePath(file, fileName);
+//            String fileName =
+//                    fileNameCreator.createNameForFile(file, Long.valueOf(groupId), subject.getId() + 1, name, author);
 
 
             Book book = new Book();
+
+            String fileName =
+                    fileNameCreator.createNameForFile(file, book.getId());
+
+            String filePath =
+                    saveFile.saveFileAndGetFilePath(file, fileName);
 
             book.setSubject(subject);
             subject.setGroup(group);
@@ -74,6 +77,6 @@ public class UserController {
         }
 
 
-        return "redirect:upload?success=true";
+        return "redirect:/user/upload/"+groupId+"?success";
     }
 }

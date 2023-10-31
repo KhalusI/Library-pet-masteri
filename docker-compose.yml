@@ -11,6 +11,8 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:mysql://sql11.freesqldatabase.com:3306/sql11657677
       - SPRING_DATASOURCE_USERNAME=sql11657677
       - SPRING_DATASOURCE_PASSWORD=lQIvaPuGE1
+      - DEFAULT_DB_SCHEMA=public
+      - MAX_FILE_SIZE=400MB
     volumes:
         - myapp-data:/app/booksFiles/
 volumes:

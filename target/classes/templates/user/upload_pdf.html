@@ -158,7 +158,7 @@
                             <input type="file" class="form-control" id="file" name="file" accept=".pdf" required><br><br>
                         </div>
 
-                        <input type="hidden" name="groupId" th:value="${subjects.get(0).getGroup().getId()}">
+                        <input type="hidden" name="groupId" th:value="${group.getId()}">
 
                         <div class="col-lg-5 col-6">
                             <button type="submit" class="form-control btn custom-btn">Завантажити</button>

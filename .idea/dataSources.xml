@@ -11,7 +11,7 @@
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="sql11657677@sql11.freesqldatabase.com" uuid="636dd20f-c6d4-4fef-9702-f61b941857f8">
+    <data-source source="LOCAL" name="sql11657677@sql11.freesqldatabase.com" uuid="662808ff-1154-4c20-a068-108fdd213bc3">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
