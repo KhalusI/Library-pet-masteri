@@ -19,6 +19,7 @@ library\library\controllers\index\IndexController.class
 library\library\config\security\SpringConfig.class
 library\library\security\SecurityUser.class
 library\library\entities\Group.class
+library\library\controllers\subjects\SubjectController.class
 library\library\services\FileNameCreator.class
 library\library\repositories\BookRepo.class
 library\library\services\GroupService.class

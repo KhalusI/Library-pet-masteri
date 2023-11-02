@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
+import org.hibernate.annotations.BatchSize;
+import org.springframework.context.annotation.Lazy;
 
 @Entity
 @Data

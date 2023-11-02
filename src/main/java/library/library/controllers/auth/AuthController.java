@@ -22,33 +22,33 @@ public class AuthController {
         this.userService = userService;
     }
 
-    @GetMapping("/registration")
-    public String registration(Model model){
-        model.addAttribute("user", new User());
-
-        return "user/registration";
-    }
-
-    @PostMapping("/register")
-    public String registerUser(@RequestParam("email") String email,
-                               @RequestParam("password") String password,
-                               Model model){
-
-        Optional<User> user1 = userService.getByEmail(email);
-
-        if(user1.isPresent()){
-            model.addAttribute("errorMessage", "Ця електронна адреса вже використовується");
-            return "user/registration";
-        }
-
-        User user = new User();
-        user.setEmail(email);
-        user.setPassword(password);
-
-        userService.save(user);
-
-        return "redirect:/auth/login?success=true";
-    }
+//    @GetMapping("/registration")
+//    public String registration(Model model){
+//        model.addAttribute("user", new User());
+//
+//        return "user/registration";
+//    }
+//
+//    @PostMapping("/register")
+//    public String registerUser(@RequestParam("email") String email,
+//                               @RequestParam("password") String password,
+//                               Model model){
+//
+//        Optional<User> user1 = userService.getByEmail(email);
+//
+//        if(user1.isPresent()){
+//            model.addAttribute("errorMessage", "Ця електронна адреса вже використовується");
+//            return "user/registration";
+//        }
+//
+//        User user = new User();
+//        user.setEmail(email);
+//        user.setPassword(password);
+//
+//        userService.save(user);
+//
+//        return "redirect:/auth/login?success=true";
+//    }
 
     @GetMapping("/login")
     public String login(){

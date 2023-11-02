@@ -52,10 +52,6 @@ public class UserController {
             Group group = groupService.getById(Long.valueOf(groupId));
             Subject subject = subjectService.getByNameAndGroupId(subjectName, group.getId());
 
-//            String fileName =
-//                    fileNameCreator.createNameForFile(file, Long.valueOf(groupId), subject.getId() + 1, name, author);
-
-
             Book book = new Book();
 
             String fileName =
