@@ -26,7 +26,8 @@ library\library\repositories\BookRepo.class
 library\library\services\GroupService.class
 library\library\services\UserService.class
 library\library\controllers\index\GroupsController.class
-library\library\services\SaveFile.class
 library\library\services\PathToFileName.class
+library\library\services\BookFileManager.class
+library\library\security\NoEncode.class
 library\library\services\SubjectService.class
 library\library\controllers\CustomErrorController.class

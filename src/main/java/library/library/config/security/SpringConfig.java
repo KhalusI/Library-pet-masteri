@@ -1,5 +1,6 @@
 package library.library.config.security;
 
+import library.library.security.NoEncode;
 import library.library.security.handlers.CustomAccessDeniedHandler;
 import library.library.services.security.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,9 +59,13 @@ public class SpringConfig {
                 .build();
     }
 
+//    @Bean
+//    protected PasswordEncoder passwordEncoder(){
+//        return new BCryptPasswordEncoder(12);
+//    }
     @Bean
     protected PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder(12);
+        return new NoEncode();
     }
 
 

@@ -1,6 +1,7 @@
 package library.library.entities;
 
 import jakarta.persistence.*;
+import library.library.services.BookFileManager;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
@@ -28,4 +29,18 @@ public class Book {
 
     @ManyToOne
     private Subject subject;
+
+    @ManyToOne
+    private User user;
+
+    public void removeUser(User user){
+        this.user = null;
+    }
+
+    public void removeUser(){
+        user.removeBook(this);
+        this.user = null;
+        BookFileManager fileManager = new BookFileManager();
+        fileManager.deleteBook(this);
+    }
 }

@@ -16,9 +16,9 @@ D:\Intellij Idea Projects\Library-pet-masteri\src\main\java\library\library\repo
 D:\Intellij Idea Projects\Library-pet-masteri\src\main\java\library\library\controllers\user\UserController.java
 D:\Intellij Idea Projects\Library-pet-masteri\src\main\java\library\library\repositories\SubjectRepo.java
 D:\Intellij Idea Projects\Library-pet-masteri\src\main\java\library\library\services\BookService.java
-D:\Intellij Idea Projects\Library-pet-masteri\src\main\java\library\library\services\SaveFile.java
 D:\Intellij Idea Projects\Library-pet-masteri\src\main\java\library\library\repositories\UserRepository.java
 D:\Intellij Idea Projects\Library-pet-masteri\src\main\java\library\library\controllers\index\GroupsController.java
+D:\Intellij Idea Projects\Library-pet-masteri\src\main\java\library\library\security\NoEncode.java
 D:\Intellij Idea Projects\Library-pet-masteri\src\main\java\library\library\services\GroupService.java
 D:\Intellij Idea Projects\Library-pet-masteri\src\main\java\library\library\entities\Group.java
 D:\Intellij Idea Projects\Library-pet-masteri\src\main\java\library\library\enums\Role.java
@@ -29,4 +29,5 @@ D:\Intellij Idea Projects\Library-pet-masteri\src\main\java\library\library\serv
 D:\Intellij Idea Projects\Library-pet-masteri\src\main\java\library\library\repositories\BookRepo.java
 D:\Intellij Idea Projects\Library-pet-masteri\src\main\java\library\library\services\FileNameCreator.java
 D:\Intellij Idea Projects\Library-pet-masteri\src\main\java\library\library\controllers\PDFController.java
+D:\Intellij Idea Projects\Library-pet-masteri\src\main\java\library\library\services\BookFileManager.java
 D:\Intellij Idea Projects\Library-pet-masteri\src\main\java\library\library\controllers\index\IndexController.java

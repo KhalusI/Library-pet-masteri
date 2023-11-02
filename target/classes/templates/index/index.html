@@ -58,7 +58,7 @@
 
                     <div class="d-lg-none">
                     <th:block th:if="${isAuth == true}">
-                            <a th:href="@{/groups}" class="bi-person custom-icon me-3"></a>
+                            <a th:href="@{/user/profile}" class="bi-person custom-icon me-3"></a>
                     </th:block>
                     <th:block th:if="${isAuth == false}">
                             <a th:href="@{/auth/login}" class="bi-person custom-icon me-3"></a>
@@ -110,7 +110,7 @@
 
                         <div class="d-none d-lg-block">
                             <th:block th:if="${isAuth == true}">
-                                <a th:href="@{/groups}" class="bi-person custom-icon me-3"></a>
+                                <a th:href="@{/user/profile}" class="bi-person custom-icon me-3"></a>
                             </th:block>
                             <th:block th:if="${isAuth == false}">
                                 <a th:href="@{/auth/login}" class="bi-person custom-icon me-3"></a>
