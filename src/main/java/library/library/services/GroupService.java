@@ -34,21 +34,4 @@ public class GroupService {
         Sort sort = Sort.by(Sort.Direction.ASC, "id");
         return groupRepo.findAll(sort);
     }
-//    public List<Group> getAll() {
-//        int page = 0;
-//        List<Group> allGroups = new ArrayList<>();
-//
-//        while (true) {
-//            Page<Group> groupPage = groupRepo.findAll(PageRequest.of(page, 10));
-//
-//            if (groupPage.hasContent()) {
-//                allGroups.addAll(groupPage.getContent());
-//            } else {
-//                break;
-//            }
-//            page++;
-//        }
-//
-//        return allGroups;
-//    }
 }

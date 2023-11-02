@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -48,6 +50,7 @@ public class UserController {
                                        @RequestParam("name") String name,
                                        @RequestParam("author") String author,
                                        @RequestParam("file") MultipartFile file) throws Exception {
+
         if(file != null) {
             Group group = groupService.getById(Long.valueOf(groupId));
             Subject subject = subjectService.getByNameAndGroupId(subjectName, group.getId());

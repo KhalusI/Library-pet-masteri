@@ -42,12 +42,6 @@ public class FileNameCreator {
             result.append(String.format("%02x", b));
         }
 
-        System.out.println(result);
-        System.out.println(result);
-        System.out.println(result);
-        System.out.println(result);
-        System.out.println(result);
-
         return result.append(bookId).toString();
     }
 }

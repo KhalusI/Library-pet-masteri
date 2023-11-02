@@ -21,6 +21,7 @@ public class Subject {
     private String name;
 
     @OneToMany(mappedBy = "subject")
+    @BatchSize(size = 30)
     private List<Book> books;
 
     @ManyToOne

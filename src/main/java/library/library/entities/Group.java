@@ -28,6 +28,7 @@ public class Group {
     private String image;
 
     @OneToMany(mappedBy = "group")
+    @BatchSize(size = 30)
     private List<Subject> subjects = new ArrayList<>();
 
     public void addSubject(Subject subject){

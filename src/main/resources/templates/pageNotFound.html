@@ -8,6 +8,7 @@
     <meta name="author" content="">
 
     <title>Бібліотека 404</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
 
     <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,7 +68,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/}">Головна</a>
+                        <a class="nav-link active" th:href="@{/}">Головна</a>
                     </li>
 
                     <a class="nav-link "  id="booksDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -159,6 +160,36 @@
 </main>
 
 <div th:replace="~{fragments/footer :: footer}"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $(".group-name").click(function() {
+            $(this).next(".collapse").toggleClass("show");
+        });
+
+        $(".subject-name").click(function() {
+            $(this).next(".collapse").toggleClass("show");
+        });
+    });
+
+    const dropdownContent = document.querySelector('.dropdown');
+
+    dropdownContent.addEventListener('click', function (e) {
+        e.stopPropagation();
+    });
+
+    document.addEventListener('click', function () {
+        dropdownContent.style.display = 'none';
+    });
+</script>
+
+<script>
+    document.querySelector('.dropdown-menu').addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+</script>
 
 <!-- JAVASCRIPT FILES -->
 <script src="/js/jquery.min.js"></script>

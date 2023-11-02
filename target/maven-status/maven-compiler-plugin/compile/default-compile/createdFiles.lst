@@ -8,6 +8,7 @@ library\library\enums\Status.class
 library\library\services\BookService.class
 library\library\entities\Subject.class
 library\library\enums\Role.class
+library\library\controllers\test\TestController.class
 library\library\entities\User.class
 library\library\repositories\SubjectRepo.class
 library\library\entities\Book.class
