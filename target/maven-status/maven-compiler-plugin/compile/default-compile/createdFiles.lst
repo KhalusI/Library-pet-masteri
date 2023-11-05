@@ -2,6 +2,7 @@ library\library\LibraryApp.class
 library\library\services\security\UserDetailsServiceImpl.class
 library\library\controllers\PDFController.class
 library\library\enums\Permission.class
+org\example\Main.class
 library\library\repositories\GroupRepo.class
 library\library\controllers\user\UserController.class
 library\library\enums\Status.class
